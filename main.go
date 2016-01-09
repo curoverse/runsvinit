@@ -81,7 +81,7 @@ func main() {
 func reapLoop() {
 	c := make(chan os.Signal)
 	signal.Notify(c, syscall.SIGCHLD)
-	for range c {
+	for _ = range c {
 		reapChildren()
 	}
 }
