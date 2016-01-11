@@ -89,12 +89,12 @@ func reapLoop() {
 func reapChildren() {
 	for {
 		var (
-			ws  syscall.WaitStatus
-			pid int
+			ws syscall.WaitStatus
+			//pid int
 			err error
 		)
 		for {
-			pid, err = syscall.Wait4(-1, &ws, 0, nil)
+			_, err = syscall.Wait4(-1, &ws, 0, nil)
 			if err != syscall.EINTR {
 				break
 			}
