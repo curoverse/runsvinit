@@ -102,7 +102,7 @@ func reapChildren() {
 		if err == syscall.ECHILD {
 			return // done
 		}
-		infof("reaped child process %d (%+v)", pid, ws)
+		//infof("reaped child process %d (%+v)", pid, ws)
 	}
 }
 
