@@ -12,22 +12,23 @@ import (
 	"syscall"
 )
 
-const etcService = "/etc/service"
-
 var (
-	debugf = log.Printf
-	info   = log.Print
-	infof  = log.Printf
-	fatal  = log.Fatal
-	fatalf = log.Fatalf
+	debugf     = log.Printf
+	info       = log.Print
+	infof      = log.Printf
+	fatal      = log.Fatal
+	fatalf     = log.Fatalf
+	etcService string
 )
 
 func main() {
 	var (
-		reap  = flag.Bool("reap", true, "reap orphan children")
-		debug = flag.Bool("debug", false, "log debug information")
+		reap   = flag.Bool("reap", true, "reap orphan children")
+		debug  = flag.Bool("debug", false, "log debug information")
+		svcdir = flag.String("svdir", "/etc/service", "services dir")
 	)
 	flag.Parse()
+	etcService = *svcdir
 
 	log.SetFlags(0)
 
